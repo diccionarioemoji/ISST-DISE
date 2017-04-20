@@ -3,6 +3,8 @@
  */
 
 function insertarEmoji(emoji){ 
-    document.getElementById('campo').focus();
-    document.execCommand('insertHTML',false,'<img style="width:17px;height:17px;" src='+emoji.src+' />') 
+    var campo = document.getElementById('campo');
+    campo.focus()
+    campoInicial= campo.innerHTML
+    campo.innerHTML = campoInicial + '<img width="18px" height="18px" src='+emoji.src+'/>'; 
 } 

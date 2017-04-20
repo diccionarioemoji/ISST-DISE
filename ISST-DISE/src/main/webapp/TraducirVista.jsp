@@ -33,32 +33,27 @@
 	
 	<!-- Pestaña de traduccion de español a emoji -->
 	<div id="Esp_Emoji" class="tabcontent">
-		<span>
-			<textarea float="left" rows="20" cols="25" placeholder="Escribe aquí el texto en castellano"></textarea>
-			<div id="traduccionAEmoji" class="caja" float="left" contenteditable="true">
+		<div>
+			<textarea style="float:left" rows="20" cols="40" placeholder="Escribe aquí el texto en castellano"></textarea>
+			<div id="traduccionAEmoji" class="caja" style="float:left">
 				<p>Aquí aparecerá la traducción</p>
 			</div>
-		</span>
-		<p>Mostrar cuadros de traduccion</p>
+		</div>
 	</div>
 
 	<!-- Pestaña de traduccion de emoji a español -->
 	<div id="Emoji_Esp" class="tabcontent">
-		<span>
-			<div float="left">
-				<div id="seleccionEmoji" class="cajita">
-					<c:forEach items="${emojis}" var="emoji">
-						<img onclick='insertar_emogi(this)' src="${emoji.imagen}" width="17px" height="17px"/>	
-					</c:forEach>
-				</div>
-				<div id="campo" class="cajita"></div>
-				<!-- INSERTAR TABLA CON EMOJIS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+		<div style="float:left">
+			<div id="seleccionEmoji" class="cajita">
+				<c:forEach items="${emojis}" var="emoji">
+					<img onclick='insertarEmoji(this)' src="${emoji.imagen}" width="18px" height="18px"/>	
+				</c:forEach>
 			</div>
-			
-			<textarea float="left" readonly rows="20" cols="25" placeholder="Aquí aparecerá la traducción"></textarea>
-
-		</span>
-		<p>Mostrar cuadros de traduccion y emojis para añadirlos al texto a traducir</p>
+			<div id="campo" class="cajita">
+				<!-- Aquí se insertan los emojis con ponerEmojis.js -->
+			</div>
+		</div>
+		<textarea style="float:left" readonly rows="20" cols="40" placeholder="Aquí aparecerá la traducción"></textarea>
 	</div>
 	
 </body>
