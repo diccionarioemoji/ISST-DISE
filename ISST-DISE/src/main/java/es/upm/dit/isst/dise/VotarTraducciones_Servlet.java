@@ -20,7 +20,7 @@ public class VotarTraducciones_Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String imagen = request.getParameter("imagen");
-		int traduccion = Integer.getInteger(request.getParameter("t"));
+		int traduccion = Integer.parseInt(request.getParameter("t"));
 		
 		Emoji emoji = null;
 		DISEDAO dao = DISEDAOImpl.getInstancia();

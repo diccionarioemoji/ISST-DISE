@@ -18,7 +18,7 @@ public class Traduccion implements Serializable {
 	private long votos;
 	
 	@Index
-	private boolean validado = false;
+	private boolean validado = true; //realmente sera false
 	
 	
 	public Traduccion() {}

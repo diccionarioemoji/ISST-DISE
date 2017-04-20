@@ -7,7 +7,7 @@ header{
 
  /* Background for the body */
 body{
-	background-image: url(imgs/backgroundDictionary.jpg);
+	background-image: url(../imgs/backgroundDictionary.jpg);
 	background-position: center;
 	background-atachment: fixed;
 	background-repeat: no-repeat;

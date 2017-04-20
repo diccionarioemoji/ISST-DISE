@@ -9,6 +9,7 @@
 <title>DISE - Diccionario Social Emoji - Traducir</title>
 <link href="css/estilos.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="clientjs/tabs.js"></script>
+<script type="text/javascript" src="clientjs/ponerEmojis.js"></script>
 </head>
 
 
@@ -22,6 +23,7 @@
 	<h1 class="titulo">Diccionario Social Emoji</h1>
 	<p>Imagen: <img src="<c:out value="${emoji1.imagen}"/>"/></p>
 	<p>Traduccion: <c:out value="${emoji1.traducciones[0].traduccion}"/></p>
+	<p><c:out value="${fn:length(emojis)}"/></p>
 	
 	<!-- Seleccion de pestaña de traduccion -->
 	<div class="tab">
@@ -34,7 +36,7 @@
 		<span>
 			<textarea float="left" rows="20" cols="25" placeholder="Escribe aquí el texto en castellano"></textarea>
 			<div id="traduccionAEmoji" class="caja" float="left" contenteditable="true">
-				<p placeholder="Aquí aparecerá la traducción"></p>
+				<p>Aquí aparecerá la traducción</p>
 			</div>
 		</span>
 		<p>Mostrar cuadros de traduccion</p>
@@ -44,8 +46,12 @@
 	<div id="Emoji_Esp" class="tabcontent">
 		<span>
 			<div float="left">
-				<div class="cajita"></div>
-				<div class="cajita"></div>
+				<div id="seleccionEmoji" class="cajita">
+					<c:forEach items="${emojis}" var="emoji">
+						<img onclick='insertar_emogi(this)' src="${emoji.imagen}" width="17px" height="17px"/>	
+					</c:forEach>
+				</div>
+				<div id="campo" class="cajita"></div>
 				<!-- INSERTAR TABLA CON EMOJIS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 			</div>
 			

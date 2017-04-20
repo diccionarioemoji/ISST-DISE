@@ -29,7 +29,7 @@ public class Emoji implements Serializable {
 		this.imagen = imagen;
 		this.autor = autor;
 		this.traducciones = traducciones;
-		this.validado = false;
+		this.validado = true; //realmente sera false
 	}
 	
 	
