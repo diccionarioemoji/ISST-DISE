@@ -9,9 +9,10 @@ header{
 body{
 	background-image: url(../imgs/backgroundDictionary.jpg);
 	background-position: center;
-	background-atachment: fixed;
+	background-atachment: scroll;
 	background-repeat: no-repeat;
 	background-position: center, center;
+	background-size: cover;
 }
 
 
