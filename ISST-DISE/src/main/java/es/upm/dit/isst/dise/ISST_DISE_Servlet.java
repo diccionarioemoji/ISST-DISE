@@ -16,6 +16,7 @@ import com.googlecode.objectify.ObjectifyService;
 import es.upm.dit.isst.dise.dao.DISEDAO;
 import es.upm.dit.isst.dise.dao.DISEDAOImpl;
 import es.upm.dit.isst.dise.model.Emoji;
+import es.upm.dit.isst.dise.model.Traduccion;
 
 public class ISST_DISE_Servlet extends HttpServlet {
 	@Override
@@ -49,7 +50,7 @@ public class ISST_DISE_Servlet extends HttpServlet {
 		                                  "Abrumado",
 		                                  "Despistado",
 		                                  "Cansado",
-		                                  "Hasta los huevos ",
+		                                  "Hasta los huevos",
 		                                  "Hasta la punta del pié",
 		                                  "Cagada máxima",
 		                                  "Alucinante",
@@ -226,6 +227,7 @@ public class ISST_DISE_Servlet extends HttpServlet {
 		}
 	}
 	
+	
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -242,26 +244,27 @@ public class ISST_DISE_Servlet extends HttpServlet {
 		dao.crearEmoji("favicon.ico", "sergio", "Esto es un favicon");
 		emoji1 = dao.leerEmoji("favicon.ico");
 		
+		//Traduccion traduccion = new Traduccion("prueba", "pablo");
+		ArrayList<Traduccion> array = new ArrayList<Traduccion>();
+		
+		array.addAll(emoji1.getTraducciones());
+		array.add(new Traduccion("prueba","prueba"));
+			
+		emoji1.setTraducciones(array);
+		dao.actualizarEmoji(emoji1);
 		//if (request.getUserPrincipal() != null) {
 			//user = request.getUserPrincipal().getName();
 			//url = userService.createLogoutURL(request.getRequestURI());
 			//urlLinktext = "Logout";
 			emojis.addAll(dao.leerTodosEmojis());
 		//}
-		/*
-		ArrayList<Traduccion> array = new ArrayList<Traduccion>();
-		array.add(new Traduccion("Unfavicon", "Javi"));
-		emoji1 = new Emoji("favicon.ico", "sergio", array);
-		*/
-		
-		
-		//response.getWriter().println(emoji1);
-		
+				
 		request.getSession().setAttribute("user", user);
 		request.getSession().setAttribute("url", url);
 		request.getSession().setAttribute("urlLinktext", urlLinktext);
 		request.getSession().setAttribute("emojis", emojis);
 		request.getSession().setAttribute("emoji1", emoji1);
+		request.getSession().setAttribute("array", array);
 		
 		
 		RequestDispatcher view = request.getRequestDispatcher("TraducirVista.jsp");

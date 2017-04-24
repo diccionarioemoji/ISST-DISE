@@ -20,20 +20,22 @@ public class VotarTraducciones_Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String imagen = request.getParameter("imagen");
-		int traduccion = Integer.parseInt(request.getParameter("t"));
+		int traduccion = Integer.parseInt(request.getParameter("n"));
 		
 		Emoji emoji = null;
 		DISEDAO dao = DISEDAOImpl.getInstancia();
-
 		emoji = dao.leerEmoji(imagen);
-		ArrayList<Traduccion> traducciones = (emoji.getTraducciones());
-		long n = traducciones.get(traduccion).getVotos() + 1;
-		traducciones.get(traduccion).setVotos(n);
-		
-		emoji.setTraducciones(traducciones);
+		ArrayList<Traduccion> array = new ArrayList<Traduccion>();
+		array.addAll(emoji.getTraducciones());
+		long n = array.get(traduccion).getVotos();
+		n++;
+		array.get(traduccion).setVotos(n);
+		emoji.setTraducciones(array);
 		dao.actualizarEmoji(emoji);
 		
-		RequestDispatcher view = request.getRequestDispatcher("VotarTraduccionVista.jsp");
+		request.getSession().setAttribute("emoji", emoji);
+		
+		RequestDispatcher view = request.getRequestDispatcher("Votacion.jsp");
 		view.forward(request, response);
 	}
 	

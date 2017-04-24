@@ -18,7 +18,7 @@ public class Traduccion implements Serializable {
 	private long votos;
 	
 	@Index
-	private boolean validado = true; //realmente sera false
+	private boolean validado = false; 
 	
 	
 	public Traduccion() {}
@@ -27,8 +27,8 @@ public class Traduccion implements Serializable {
 		super();
 		this.traduccion = traduccion;
 		this.autor = autor;
-		this.votos = 0;
-		this.validado = false;
+		this.votos = 1;
+		this.validado = true; //realmente sera false
 	}
 
 	public String getTraduccion() {

@@ -14,22 +14,24 @@
 
 
 <body>
+
 	<c:if test="${not empty user}">
 		<header> Usuario:&nbsp;<c:out value="${user}" />&nbsp;|&nbsp;<a
-			href="<c:url value="${url}"/>"><c:out value="${urlLinktext}" /></a> </header>
+			href="<c:url value="${url}"/>"><c:out value="${urlLinktext}" /></a>
+		</header>
 	</c:if>
 
 	<h1 class="titulo">Diccionario Social Emoji</h1>
-	<p>
-		Imagen: <img src="<c:out value="${emoji1.imagen}"/>" />
-	</p>
-	<p>
-		Traduccion:
-		<c:out value="${emoji1.traducciones[0].traduccion}" />
-	</p>
-	<p>
-		<c:out value="${fn:length(emojis)}" />
-	</p>
+
+	<nav id="nav">
+	<ul>
+		<li class="tab"><a href="/isst_dise">Traductor</a></li>
+		<li class="tab"><a href="/votar_traduccion">Votar Traduccion</a></li>
+		<li class="tab"><a href="/nuevoemoji">Nuevo Emoji</a></li>
+		<li class="tab"><a href="/ranking">Ranking</a></li>
+
+	</ul>
+	</nav>
 
 	<!-- Seleccion de pestaña de traduccion -->
 	<div class="tab">
@@ -40,29 +42,28 @@
 	</div>
 
 	<!-- Pestaña de traduccion de español a emoji -->
-	<div id="Esp_Emoji" class="tabcontent">
+	<div id="Esp_Emoji" class="tabcontent" style="display: block">
 		<div>
-			<textarea style="float: left" rows="20" cols="40"
-				placeholder="Escribe aquí el texto en castellano"></textarea>
-			<div id="traduccionAEmoji" class="caja" style="float: left">
+			<textarea class="caja-texto"  placeholder="Escribe aquí el texto en castellano"></textarea>
+			<div id="traduccionAEmoji" class="caja">
 				<p>Aquí aparecerá la traducción</p>
 			</div>
 		</div>
 	</div>
 
 	<!-- Pestaña de traduccion de emoji a español -->
-	<div id="Emoji_Esp" class="tabcontent">
-		<div style="float: left">
+	<div id="Emoji_Esp" class="tabcontent" style="display: none">
+		<div style="float:left">
 			<div id="seleccionEmoji" class="cajita">
 				<c:forEach items="${emojis}" var="emoji">
-					<img onclick='insertarEmoji(this)' src="${emoji.imagen}" alt="${emoji.traducciones[0].traduccion}" width="24px" height="24px" />
+					<img onclick='insertarEmoji(this)' src="${emoji.imagen}" alt="${emoji.traducciones[0].traduccion}" width="30px" height="30px"/>	
 				</c:forEach>
 			</div>
 			<div id="campo" class="cajita">
 				<!-- Aquí se insertan los emojis con ponerEmojis.js -->
 			</div>
 		</div>
-		<textarea id="traduccionAEsp" style="float: left" readonly rows="20" cols="40" placeholder="Aquí aparecerá la traducción"></textarea>
+		<textarea id="traduccion" class="caja-texto" readonly placeholder="Aquí aparecerá la traducción"></textarea>
 	</div>
 
 </body>
