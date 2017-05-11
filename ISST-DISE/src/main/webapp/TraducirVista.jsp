@@ -44,11 +44,15 @@
 	<!-- Pestaña de traduccion de español a emoji -->
 	<div id="Esp_Emoji" class="tabcontent" style="display: block">
 		<div>
-			<textarea class="caja-texto"  placeholder="Escribe aquí el texto en castellano"></textarea>
-			<div id="traduccionAEmoji" class="caja">
-				<p>Aquí aparecerá la traducción</p>
+			<textarea form="textoATraducirEspEmo"  name="escrito" class="caja-texto"  placeholder="Escribe aquí el texto en castellano"></textarea>
+			<div id="traduccionAEmoji" class="caja" ">
+				<c:out value="${textoFinal}" escapeXml="false"/>
 			</div>
+			<!--<script type="text/javascript">document.getElementById("traduccionAEmoji").innerHTML=textoFinal</script>-->
 		</div>
+		<form id="textoATraducirEspEmo" action="/traducirEspEmo" method="post" acceptcharset="utf-8">
+			<button type="submit" class="escrito">Traducir</button>
+		</form>
 	</div>
 
 	<!-- Pestaña de traduccion de emoji a español -->

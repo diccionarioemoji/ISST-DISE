@@ -31,7 +31,7 @@ public class ISST_DISE_Servlet extends HttpServlet {
 		                                  "Despreocupado",
 		                                  "Llorón",
 		                                  "Triste",
-		                                  "Feliz ",
+		                                  "Feliz",
 		                                  "Compungido",
 		                                  "Decepcionado",
 		                                  "Alegre",
@@ -92,15 +92,15 @@ public class ISST_DISE_Servlet extends HttpServlet {
 		                                  "Rubio",
 		                                  "Ángel",
 		                                  "Princesa",
-		                                  "Gato Sonriente",
-		                                  "Gato Gracioso",
-		                                  "Gato Enamorado",
-		                                  "Beso de Gato",
-		                                  "Gato Picarón",
-		                                  "Gato Sorprendido",
-		                                  "Gato Llorando",
-		                                  "Gato Sonriendo",
-		                                  "Gato Cabreado",
+		                                  "Gato sonriente",
+		                                  "Gato gracioso",
+		                                  "Gato enamorado",
+		                                  "Beso de gato",
+		                                  "Gato picarón",
+		                                  "Gato sorprendido",
+		                                  "Gato llorando",
+		                                  "Gato sonriendo",
+		                                  "Gato cabreado",
 		                                  "Demonio Oni",
 		                                  "Demonio Tengu",
 		                                  "Prefiero no mirar",
@@ -199,7 +199,7 @@ public class ISST_DISE_Servlet extends HttpServlet {
 		                                  "Corazones locos",
 		                                  "Flechazo de amor",
 		                                  "Carta de amor",
-		                                  "Beso ",
+		                                  "Beso",
 		                                  "Anillo",
 		                                  "Diamante",
 		                                  "Persona",
@@ -209,7 +209,7 @@ public class ISST_DISE_Servlet extends HttpServlet {
 		                                  "Pensamiento",
 		                                  "Bebé",
 		                                  "Besito",
-		                                  "Chincha ",
+		                                  "Chincha",
 		                                  "Sonrojado",
 		                                  "Sonrisa forzada",
 		                                  "Guiño",
@@ -265,6 +265,8 @@ public class ISST_DISE_Servlet extends HttpServlet {
 		request.getSession().setAttribute("emojis", emojis);
 		request.getSession().setAttribute("emoji1", emoji1);
 		request.getSession().setAttribute("array", array);
+		
+		request.getSession().setAttribute("textoFinal", "Aquí aparecerá la traducción");
 		
 		
 		RequestDispatcher view = request.getRequestDispatcher("TraducirVista.jsp");

@@ -29,6 +29,14 @@
 		<url-pattern>/votar_traduccion</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<servlet-name>TRADUCIRESPEMO</servlet-name>
+		<servlet-class>es.upm.dit.isst.dise.TraduccionEspEmo_Servlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TRADUCIRESPEMO</servlet-name>
+		<url-pattern>/traducirEspEmo</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>VOTACION</servlet-name>
 		<servlet-class>es.upm.dit.isst.dise.Votacion_Servlet</servlet-class>
 	</servlet>
