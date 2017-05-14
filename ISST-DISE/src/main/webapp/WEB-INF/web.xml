@@ -21,8 +21,7 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>CARGAREMOJIS</servlet-name>
-		<servlet-class>es.upm.dit.isst.dise.CargarEmojis_Servlet
-		</servlet-class>
+		<servlet-class>es.upm.dit.isst.dise.CargarEmojis_Servlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CARGAREMOJIS</servlet-name>
@@ -46,12 +45,27 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>VotarTraduccion</servlet-name>
-		<servlet-class>es.upm.dit.isst.dise.VotarTraducciones_Servlet
-		</servlet-class>
+		<servlet-class>es.upm.dit.isst.dise.VotarTraducciones_Servlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>VotarTraduccion</servlet-name>
 		<url-pattern>/votar_traducciones</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>SubirEmoji</servlet-name>
+		<servlet-class>es.upm.dit.isst.dise.SubirEmoji_Servlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SubirEmoji</servlet-name>
+		<url-pattern>/upload</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>NuevaTraduccion</servlet-name>
+		<servlet-class>es.upm.dit.isst.dise.NuevaTraduccion_Servlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NuevaTraduccion</servlet-name>
+		<url-pattern>/nueva_traduccion</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

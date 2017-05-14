@@ -23,20 +23,21 @@
 	<ul>
 		<li class="tab"><a href="/isst_dise">Traductor</a></li>
 		<li class="tab"><a href="/votar_traduccion">Votar Traduccion</a></li>
-		<li class="tab"><a href="/nuevoemoji">Nuevo Emoji</a></li>
+		<li class="tab"><a href="/NuevoEmoji.jsp">Nuevo Emoji</a></li>
 		<li class="tab"><a href="/ranking">Ranking</a></li>
 
 	</ul>
 	</nav>
 
-	<div class="imagen">
+<div class="imagen">
 		<img src="${emoji.imagen}" />
 	</div>
+	<div >
 	<div class="traducciones">
 		<form action="/votar_traducciones" method="post" acceptcharset="utf-8">
 			<c:forEach items="${emoji.traducciones}" var="traduccion"
 				varStatus="n">
-				<input type="radio" value="${n.index}" name="n">${traduccion.traduccion}<br>
+				<input type="radio" value="${n.index}" name="n" required>${traduccion.traduccion}<br>
 			</c:forEach>
 			<input type="hidden" value="${emoji.imagen}" name="imagen"> <input
 				type="submit" value="Enviar" class="btn btn-primary" />
@@ -46,6 +47,16 @@
 		<c:forEach items="${emoji.traducciones}" var="traduccion">
 			<p class="votaciones">${traduccion.votos}</p>
 		</c:forEach>
+	</div>
+	
+	</div>
+	
+	<div class="NuevaTraduccion" style = "clear:both">
+		<form action="/nueva_traduccion" method="post" acceptcharset="utf-8">
+			<input type="text" placeholder="Proponga aquí su traducción" name="nuevaTraduccion">
+			<input type="hidden" value="${emoji.imagen}" name="imagen"> 
+			<input type="submit" value="Proponer Traduccion" class="btn btn-primary" />
+		</form>
 	</div>
 
 
