@@ -27,6 +27,7 @@
 			href="<c:url value="${url}"/>"><c:out value="${urlLinktext}" /></a>
 		</header>
 	</c:if>
+	
 
 	<h1 class="titulo">Diccionario Social Emoji</h1>
 
@@ -39,10 +40,11 @@
 
 	</ul>
 	</nav>
+	<c:if test="${not empty user}">
 	<div>
 		<h2>
 			Proponga su nuevo Emoji
-			<h2>
+			</h2>
 				<form action="<%=blobstoreService.createUploadUrl("/upload")%>"
 						enctype="multipart/form-data"  method="post">
 					<p>Proponga la traducción inicial</p>
@@ -54,7 +56,14 @@
 
 				</form>
 	</div>
+	</c:if>
 
+	<c:if test="${empty user}">
+		<p>
+			Para poder subir un nuevo emoji necesita estar registrado, autentíquese <a
+				href="<c:url value="${url}"/>" class="btn btn-success">aquí</a>
+		</p>
+	</c:if>
 
 </body>
 </html>

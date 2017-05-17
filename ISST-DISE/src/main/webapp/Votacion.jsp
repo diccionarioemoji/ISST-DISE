@@ -1,13 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>DISE Votar Traducción</title>
+<meta http-equiv="Content-Type" content="text/html; charset= UTF-8">
+<title>DISE Votar TraducciÃ³n</title>
 <link href="css/estilos.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="clientjs/alerttraduccion.js"></script>
+
 </head>
 <body>
 
@@ -35,8 +37,7 @@
 	<div >
 	<div class="traducciones">
 		<form action="/votar_traducciones" method="post" acceptcharset="utf-8">
-			<c:forEach items="${emoji.traducciones}" var="traduccion"
-				varStatus="n">
+			<c:forEach items="${validadas}" var="traduccion" varStatus="n">
 				<input type="radio" value="${n.index}" name="n" required>${traduccion.traduccion}<br>
 			</c:forEach>
 			<input type="hidden" value="${emoji.imagen}" name="imagen"> <input
@@ -44,21 +45,22 @@
 		</form>
 	</div>
 	<div class="votaciones">
-		<c:forEach items="${emoji.traducciones}" var="traduccion">
+		<c:forEach items="${validadas}" var="traduccion">
 			<p class="votaciones">${traduccion.votos}</p>
 		</c:forEach>
 	</div>
 	
 	</div>
 	
+	</div>
+	
 	<div class="NuevaTraduccion" style = "clear:both">
 		<form action="/nueva_traduccion" method="post" acceptcharset="utf-8">
-			<input type="text" placeholder="Proponga aquí su traducción" name="nuevaTraduccion">
+			<input type="text" placeholder="Proponga aquÃ­ su traducciÃ³n" name="nuevaTraduccion" required>
 			<input type="hidden" value="${emoji.imagen}" name="imagen"> 
-			<input type="submit" value="Proponer Traduccion" class="btn btn-primary" />
+			<input type="button" onclick="alerta(this.form)" value="Proponer Traduccion"/>
 		</form>
 	</div>
-
 
 </body>
 </html>

@@ -21,7 +21,8 @@ public class NuevaTraduccion_Servlet extends HttpServlet {
 		
 		String imagen = req.getParameter("imagen");
 		String traduccion1 = req.getParameter("nuevaTraduccion");
-		Traduccion traduccion = new Traduccion(traduccion1, "invitado");
+		String user = req.getUserPrincipal().getName();
+		Traduccion traduccion = new Traduccion(traduccion1, user);
 		Emoji emoji = null;
 		
 		DISEDAO dao = DISEDAOImpl.getInstancia();

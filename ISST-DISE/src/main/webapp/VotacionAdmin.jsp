@@ -8,18 +8,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>DISE Votar Traducción</title>
 <link href="css/estilos.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="clientjs/tabs.js"></script>
-<script type="text/javascript" src="clientjs/ponerEmojis.js"></script>
 </head>
-
-
 <body>
+
 	<c:if test="${not empty user}">
 		<header> Usuario:&nbsp;<c:out value="${user}" />&nbsp;|&nbsp;<a
 			href="<c:url value="${url}"/>"><c:out value="${urlLinktext}" /></a>
 		</header>
 	</c:if>
-	
 
 	<h1 class="titulo">Diccionario Social Emoji</h1>
 
@@ -33,37 +29,28 @@
 	</ul>
 	</nav>
 
-	<c:if test="${not empty user}">
-	<p>Seleccione el emoji:</p>
-
-
-	<div class="emojis">
-		<div class="cajita1">
-		<form action="/votacion" method="post" acceptcharset="utf-8">
-			<c:forEach items="${emojis}" var="emoji">
-				<button type="submit" class="escrito" name="escrito" value="${emoji.imagen}">
-					<img src="${emoji.imagen}" width="50px" height="50px">
-				</button>
+	<div class="imagen">
+		<img src="${emoji.imagen}" />
+	</div>
+	<div>
+		<div>
+			<p>Traducciones aceptas:</p>
+			<c:forEach items="${validadas}" var="traduccion">
+				<p>${traduccion.traduccion}</p>
 			</c:forEach>
-		</form>
+			<p>Traducciones pendientes:</p>
+			<c:forEach items="${noValidadas}" var="traduccion" varStatus="n">
+				<form action="/admin_traduccion" method="post" acceptcharset="utf-8">
+					<p>${traduccion.traduccion}:
+						<input type="submit" value="Aceptar"  name="submit" class="submit">
+						<input type="submit" value="Rechazar" name="submit" class="submit"></p>
+					<input type="hidden" value="${emoji.imagen}" name="imagen">
+					<input type="hidden" value="${traduccion.traduccion}" name="traduccion"> 
+				</form>
+			</c:forEach>
+
+		</div>
 	</div>
-	</div>
-
-
-	<p>
-	<div id="campo">
-		<!-- Aquí se insertan los emojis con ponerEmojis.js -->
-	</div>
-	</p>
-
-	</c:if>
-
-	<c:if test="${empty user}">
-		<p>
-			Para poder votar una traduccion necesita estar registrado, autentíquese <a
-				href="<c:url value="${url}"/>" class="btn btn-success">aquí</a>
-		</p>
-	</c:if>
 
 
 </body>

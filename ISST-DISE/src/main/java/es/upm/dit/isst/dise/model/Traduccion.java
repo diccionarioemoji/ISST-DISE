@@ -28,7 +28,7 @@ public class Traduccion implements Serializable {
 		this.traduccion = traduccion;
 		this.autor = autor;
 		this.votos = 1;
-		this.validado = true; //realmente sera false
+		this.validado = false;
 	}
 
 	public String getTraduccion() {
