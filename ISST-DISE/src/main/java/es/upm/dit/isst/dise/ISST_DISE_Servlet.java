@@ -15,7 +15,10 @@ import com.googlecode.objectify.ObjectifyService;
 
 import es.upm.dit.isst.dise.dao.DISEDAO;
 import es.upm.dit.isst.dise.dao.DISEDAOImpl;
+import es.upm.dit.isst.dise.dao.PuntuacionDAO;
+import es.upm.dit.isst.dise.dao.PuntuacionDAOImpl;
 import es.upm.dit.isst.dise.model.Emoji;
+import es.upm.dit.isst.dise.model.Puntuacion;
 import es.upm.dit.isst.dise.model.Traduccion;
 
 public class ISST_DISE_Servlet extends HttpServlet {
@@ -25,8 +28,10 @@ public class ISST_DISE_Servlet extends HttpServlet {
 													// servlet
 		
 		ObjectifyService.register(Emoji.class);
-		
+		ObjectifyService.register(Puntuacion.class);
 		DISEDAO dao = DISEDAOImpl.getInstancia();
+		PuntuacionDAO daoRank = PuntuacionDAOImpl.getInstancia();
+		//
 //		String[] traduccionesIniciales = {"Preocupado",
 //		                                  "Despreocupado",
 //		                                  "Llorón",
@@ -221,10 +226,11 @@ public class ISST_DISE_Servlet extends HttpServlet {
 //				for (int k = 0; k < 10; k++) {
 //					if (i*100+j*10+k>maximo) break fuera;
 //					String imagen = "emojisIniciales/"+Integer.toString(i)+Integer.toString(j)+Integer.toString(k)+".png";
-//					dao.crearEmoji(imagen, "Developers", traduccionesIniciales[i*100+j*10+k]);
+//					dao.crearEmoji(imagen, "Developers", traduccionesIniciales[i*100+j*10+k]);					
 //				}
 //			}
 //		}
+		//
 	}
 	
 	
@@ -238,6 +244,8 @@ public class ISST_DISE_Servlet extends HttpServlet {
 		String user = "";
 		
 		DISEDAO dao = DISEDAOImpl.getInstancia();
+		PuntuacionDAO daoRank = PuntuacionDAOImpl.getInstancia();
+		Puntuacion  puntuacion = null;
 		Emoji emoji1 = null;
 		ArrayList<Emoji> emojis = new ArrayList<>();
 		
@@ -253,18 +261,25 @@ public class ISST_DISE_Servlet extends HttpServlet {
 		emoji1.setTraducciones(array);
 		dao.actualizarEmoji(emoji1);
 		if (request.getUserPrincipal() != null) {
+			
 			user = request.getUserPrincipal().getName();
+			if(daoRank.leerPuntuacion(user) == null){
+				puntuacion = daoRank.crearPuntuacion(user);
+			}
+			else{
+				puntuacion = daoRank.leerPuntuacion(user);
+			}
 			url = userService.createLogoutURL(request.getRequestURI());
 			urlLinktext = "Logout";
 		}
 		emojis.addAll(dao.leerTodosEmojis());
-		response.getWriter().println("<p>Pulsa <a href=\"" + url + "\">" + urlLinktext + "</a>.</p>");
 		request.getSession().setAttribute("user", user);
 		request.getSession().setAttribute("url", url);
 		request.getSession().setAttribute("urlLinktext", urlLinktext);
 		request.getSession().setAttribute("emojis", emojis);
 		request.getSession().setAttribute("emoji1", emoji1);
 		request.getSession().setAttribute("array", array);
+		request.getSession().setAttribute("puntuacion", puntuacion);
 		
 		request.getSession().setAttribute("textoFinal", "Aquí aparecerá la traducción");
 		

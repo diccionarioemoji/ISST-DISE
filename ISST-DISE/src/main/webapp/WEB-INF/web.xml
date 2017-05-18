@@ -75,6 +75,14 @@
 		<servlet-name>AdminTraduccion</servlet-name>
 		<url-pattern>/admin_traduccion</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>Ranking</servlet-name>
+		<servlet-class>es.upm.dit.isst.dise.Ranking_Servlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Ranking</servlet-name>
+		<url-pattern>/ranking</url-pattern>
+	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>

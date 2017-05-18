@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ page
 	import="com.google.appengine.api.blobstore.BlobstoreServiceFactory"%>
@@ -12,7 +12,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>DISE - Diccionario Social Emoji - Traducir</title>
 <link href="css/estilos.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="clientjs/tabs.js"></script>
@@ -25,6 +25,10 @@
 	<c:if test="${not empty user}">
 		<header> Usuario:&nbsp;<c:out value="${user}" />&nbsp;|&nbsp;<a
 			href="<c:url value="${url}"/>"><c:out value="${urlLinktext}" /></a>
+		</header>
+	</c:if>
+	<c:if test="${empty user}">
+		<header> <a	href="<c:url value="${url}"/>"><c:out value="${urlLinktext}" /></a>
 		</header>
 	</c:if>
 	
@@ -47,10 +51,10 @@
 			</h2>
 				<form action="<%=blobstoreService.createUploadUrl("/upload")%>"
 						enctype="multipart/form-data"  method="post">
-					<p>Proponga la traducción inicial</p>
-					<input type="text" placeholder="Escriba aquí su traducción"
+					<p>Proponga la traducciÃ³n inicial</p>
+					<input type="text" placeholder="Escriba aquÃ­ su traducciÃ³n"
 						name="traduccion">
-					<p>Suba su archivo a continuación</p>
+					<p>Suba su archivo a continuaciÃ³n</p>
 					<input type="file" name="file" />
 					<input type="button" value="Upload document" onclick="comprueba_extension(this.form, this.form.file.value)" />
 
@@ -60,8 +64,8 @@
 
 	<c:if test="${empty user}">
 		<p>
-			Para poder subir un nuevo emoji necesita estar registrado, autentíquese <a
-				href="<c:url value="${url}"/>" class="btn btn-success">aquí</a>
+			Para poder subir un nuevo emoji necesita estar registrado, autentÃ­quese <a
+				href="<c:url value="${url}"/>" class="btn btn-success">aquÃ­</a>
 		</p>
 	</c:if>
 

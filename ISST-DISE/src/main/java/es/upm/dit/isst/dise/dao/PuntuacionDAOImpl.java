@@ -24,7 +24,7 @@ public class PuntuacionDAOImpl implements PuntuacionDAO {
 
 	@Override
 	public Puntuacion crearPuntuacion(String usuario) {
-		Puntuacion puntuacion = new Puntuacion();
+		Puntuacion puntuacion = new Puntuacion(usuario);
 		
 		ofy().save().entity(puntuacion).now();
 		return puntuacion;

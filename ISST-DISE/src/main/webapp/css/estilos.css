@@ -1,12 +1,12 @@
 @CHARSET "ISO-8859-1";
 
 /* Position for the header (user and logout) */
-header{
+header {
 	text-align: right;
 }
 
- /* Background for the body */
-body{
+/* Background for the body */
+body {
 	background-image: url(../imgs/backgroundDictionary.jpg);
 	background-position: center;
 	background-atachment: fixed;
@@ -15,139 +15,156 @@ body{
 	background-size: cover;
 }
 
-
- /* Style of the tab */
+/* Style of the tab */
 div.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
 }
 
 /* Style of the buttons inside the tab */
 div.tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
 }
 
 /* Change background color of buttons on hover */
 div.tab button:hover {
-    background-color: #ddd;
+	background-color: #ddd;
 }
 
 /* Create an active/current tablink class */
 div.tab button.active {
-    background-color: #ccc;
+	background-color: #ccc;
 }
 
 /* Style the tab content */
 .tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
+	display: none;
+	padding: 6px 12px;
+	border-top: none;
 }
 
-
-.cajita{
+.cajita {
 	border: 1px solid;
 	width: 320px;
 	height: 160px;
 	overflow: scroll;
 	background-color: white;
 }
-.cajita1{
-	float:left;
+
+.cajita1 {
+	float: left;
 }
-.caja{
+
+.caja {
 	border: 1px solid;
 	width: 320px;
-	height: 320px;
-	overflow: scroll;
+	height: 324px;
 	background-color: white;
 }
-.caja-texto{
-	float:left;
+
+.caja-texto {
+	float: left;
 	margin: auto;
-	max-width:320px;
-	max-height:320px;
-	min-width:320px;
-	min-height:320px
+	max-width: 320px;
+	max-height: 320px;
+	min-width: 320px;
+	min-height: 320px
 }
-.traducciones{
-	float:left;
+
+.traducciones {
+	float: left;
 	width: 200px;
 }
-.escrito{
-	float:left;
+
+.escrito {
+	float: left;
 	border: none;
 	width: none;
 	height: none;
 	background: none;
-	
 }
-.imagen{
+
+.imagen {
 	width: 100%;
 }
-.votaciones{
+
+.votaciones {
 	margin: 0px;
 }
-.emojis{
+
+.emojis {
 	width: 80%;
 	margin: auto;
 }
+
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
 }
 
 li {
-    float: left;
+	float: left;
 }
 
 li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: #111;
+	background-color: #111;
 }
 
-#traduccionAEmoji{
+#traduccionAEmoji {
 	background-color: white;
-	float:left;
+	float: left;
 	margin: auto;
 }
-#seleccionEmoji{
-	background-color: white;
-	margin: auto;
-}
-campo{
+
+#seleccionEmoji {
 	background-color: white;
 	margin: auto;
 }
 
-.titulo{
+campo {
+	background-color: white;
+	margin: auto;
+}
+
+.titulo {
 	text-align: center;
+	font-size: 45px;
 }
 
-textarea{
+textarea {
 	display: block;
-    margin: auto;
-}
-.traduccion{
 	margin: auto;
+}
+
+.traduccion {
+	margin: auto;
+}
+
+.borrar {
+	background-color: #2d6183;
+	border-radius: 28px;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 22px;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
 }
