@@ -24,12 +24,12 @@ public class Emoji implements Serializable {
 
 	public Emoji() {}
 	
-	public Emoji(String imagen, String autor, ArrayList<Traduccion> traducciones) {
+	public Emoji(String imagen, String autor, ArrayList<Traduccion> traducciones, boolean validado) {
 		super();
 		this.imagen = imagen;
 		this.autor = autor;
 		this.traducciones = traducciones;
-		this.validado = true; //realmente sera false
+		this.validado = validado;
 	}
 	
 	

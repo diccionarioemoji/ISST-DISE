@@ -9,7 +9,7 @@ import es.upm.dit.isst.dise.model.Traduccion;
 public interface DISEDAO {
 	
 	// CREAR
-	public Emoji crearEmoji(String imagen, String autor, String traduccionPorDefecto);
+	public Emoji crearEmoji(String imagen, String autor, String traduccionPorDefecto, boolean validado);
 	
 	// LEER
 	// Todos los emojis

@@ -3,12 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ page
-	import="com.google.appengine.api.blobstore.BlobstoreServiceFactory"%>
+<%@ page import="com.google.appengine.api.blobstore.BlobstoreServiceFactory"%>
 <%@ page import="com.google.appengine.api.blobstore.BlobstoreService"%>
-<%
-	BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-%>
+<% BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,11 +24,7 @@
 			href="<c:url value="${url}"/>"><c:out value="${urlLinktext}" /></a>
 		</header>
 	</c:if>
-	<c:if test="${empty user}">
-		<header> <a	href="<c:url value="${url}"/>"><c:out value="${urlLinktext}" /></a>
-		</header>
-	</c:if>
-	
+
 
 	<h1 class="titulo">Diccionario Social Emoji</h1>
 
@@ -45,29 +38,29 @@
 	</ul>
 	</nav>
 	<c:if test="${not empty user}">
-	<div>
-		<h2>
-			Proponga su nuevo Emoji
-			</h2>
-				<form action="<%=blobstoreService.createUploadUrl("/upload")%>"
-						enctype="multipart/form-data"  method="post">
-					<p>Proponga la traducción inicial</p>
-					<input type="text" placeholder="Escriba aquí su traducción"
-						name="traduccion">
-					<p>Suba su archivo a continuación</p>
-					<input type="file" name="file" />
-					<input type="button" value="Upload document" onclick="comprueba_extension(this.form, this.form.file.value)" />
-
-				</form>
-	</div>
+		<div>
+			<h2>Proponga su nuevo Emoji</h2>
+			<form action="<%=blobstoreService.createUploadUrl("/upload")%>"
+				enctype="multipart/form-data" method="post">
+				<p>Proponga la traducción inicial</p>
+				<input type="text" placeholder="Escriba aquí su traducción"
+					name="traduccion" required>
+				<p>Suba su archivo a continuación</p>
+				<input type="file" name="file" />
+				<input type="button" value="Subir emoji" onclick="comprueba_extension(this.form, this.form.file.value, this.form.traduccion.value)" />
+				<input type="hidden" name="autor" value="${user}">
+			</form>
+		</div>
 	</c:if>
 
 	<c:if test="${empty user}">
 		<p>
-			Para poder subir un nuevo emoji necesita estar registrado, autentíquese <a
-				href="<c:url value="${url}"/>" class="btn btn-success">aquí</a>
+			Para poder subir un nuevo emoji necesita estar registrado,
+			autentíquese <a href="<c:url value="${url}"/>"
+				class="btn btn-success">aquí</a>
 		</p>
 	</c:if>
+
 
 </body>
 </html>

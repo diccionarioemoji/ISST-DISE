@@ -1,6 +1,9 @@
-function comprueba_extension(formulario, archivo) { 
+function comprueba_extension(formulario, archivo, traduccion) { 
    extensiones_permitidas = new Array(".png"); 
    mierror = ""; 
+   if(!traduccion){
+	   alert ("Introduzca traduccion");
+   }else{
    if (!archivo) { 
       //Si no tengo archivo, es que no se ha seleccionado un archivo en el formulario 
       	mierror = "No has seleccionado ningún archivo"; 
@@ -20,7 +23,7 @@ function comprueba_extension(formulario, archivo) {
          mierror = "Comprueba la extensión de los archivos a subir. \nSólo se pueden subir archivos con extensiones: " + extensiones_permitidas.join(); 
       	}else{ 
          	//submito! 
-         alert ("Todo correcto. Voy a submitir el formulario."); 
+         alert ("Su petición esta siendo procesada. Gracias por contribuir al diccionario social."); 
          formulario.submit(); 
          return 1; 
       	} 
@@ -28,4 +31,5 @@ function comprueba_extension(formulario, archivo) {
    //si estoy aqui es que no se ha podido submitir 
    alert (mierror); 
    return 0; 
+}
 }

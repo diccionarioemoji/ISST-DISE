@@ -25,10 +25,10 @@ public class TraduccionEspEmo_Servlet extends HttpServlet{
 		for (int i = 0; i < traducciones.length; i++) {
 			traducciones[i] = emojis.get(i).getTraducciones().get(0).getTraduccion();
 		}
-		String textoATraducir=request.getParameter("escrito");
+		String textoATraducir = request.getParameter("escrito");
 		//request.getSession().getAttribute("textoATraducir");
 		String[] parts = textoATraducir.split("\\s++");
-		String[] parts1 = new String[parts.length];
+//		String[] parts1 = new String[parts.length];
 //		parts1 = parts;
 //		//quitamos tildes, interrogaciones, etc
 //		for(int x=0; x < parts.length; x++){

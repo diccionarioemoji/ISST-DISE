@@ -5,21 +5,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset= UTF-8">
-<title>DISE Ranking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DISE Nuevo Emoji</title>
 <link href="css/estilos.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="clientjs/alerttraduccion.js"></script>
-
 </head>
 <body>
+
 	<c:if test="${not empty user}">
 		<header> Usuario:&nbsp;<c:out value="${user}" />&nbsp;|&nbsp;<a
 			href="<c:url value="${url}"/>"><c:out value="${urlLinktext}" /></a>
 		</header>
 	</c:if>
 	<c:if test="${empty user}">
-		<header> <a	href="<c:url value="${url}"/>"><c:out value="${urlLinktext}" /></a>
-		</header>
+		<header> <a href="<c:url value="${url}"/>"><c:out
+				value="${urlLinktext}" /></a> </header>
 	</c:if>
 
 	<h1 class="titulo">Diccionario Social Emoji</h1>
@@ -34,28 +33,24 @@
 	</ul>
 	</nav>
 
-	<div class="votaciones">
-		<c:if test="${not empty user}">
-			<p>
-				Su puntuacion es
-				<c:out value="${puntuacion.puntuacion}" />
-			</p>
-		</c:if>
+	<div>
+		<p>Emojis pendientes:</p>
 		<table>
-			<thead>
-				<td>Usuario</td>
-				<td>Puntuacion</td>
-			</thead>
-			<c:forEach items="${puntuaciones}" var="p">
-				<tr>
-					<td><c:out value="${p.usuario}" /></td>
-					<td><c:out value="${p.puntuacion}" /></td>
+			<c:forEach items="${emojis}" var="emoji" varStatus="n">
+			<tr>
+				<form action="/admin_nuevo_emoji" method="post" acceptcharset="utf-8">
+					
+						<td><img src="${emoji.imagen}" /></td>
+						<td>${emoji.traducciones[0].traduccion}</td>
+						<td><input type="submit" value="Aceptar" name="submit" class="submit"></td>
+						<td><input type="submit" value="Rechazar" name="submit" class="submit"></td>
+						<td><input type="hidden" value="${emoji.imagen}" name="imagen"></td>
+					
+				</form>
 				</tr>
 			</c:forEach>
 		</table>
-
 	</div>
-
 
 </body>
 </html>

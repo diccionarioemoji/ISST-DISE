@@ -22,8 +22,8 @@
 		</header>
 	</c:if>
 	<c:if test="${empty user}">
-		<header> <a	href="<c:url value="${url}"/>"><c:out value="${urlLinktext}" /></a>
-		</header>
+		<header> <a href="<c:url value="${url}"/>"><c:out
+				value="${urlLinktext}" /></a> </header>
 	</c:if>
 
 	<h1 class="titulo">Diccionario Social Emoji</h1>
@@ -32,7 +32,7 @@
 	<ul>
 		<li class="tab"><a href="/isst_dise">Traductor</a></li>
 		<li class="tab"><a href="/votar_traduccion">Votar Traduccion</a></li>
-		<li class="tab"><a href="/NuevoEmoji.jsp">Nuevo Emoji</a></li>
+		<li class="tab"><a href="/nuevoemoji">Nuevo Emoji</a></li>
 		<li class="tab"><a href="/ranking">Ranking</a></li>
 
 	</ul>
@@ -49,8 +49,9 @@
 	<!-- Pestaña de traduccion de español a emoji -->
 	<div id="Esp_Emoji" class="tabcontent" style="display: block">
 		<div>
-			<textarea id="textareaATraducirEspEmo" form="textoATraducirEspEmo" name="escrito"
-				class="caja-texto" placeholder="Escribe aquí el texto en castellano"></textarea>
+			<textarea id="textareaATraducirEspEmo" form="textoATraducirEspEmo"
+				name="escrito" class="caja-texto"
+				placeholder="Escribe aquí el texto en castellano"></textarea>
 			<div id="traduccionAEmoji" class="caja">
 				<c:out value="${textoFinal}" escapeXml="false" />
 			</div>
@@ -60,28 +61,34 @@
 			acceptcharset="utf-8">
 			<button type="submit" class="borrar">Traducir</button>
 		</form>
-		<button class="borrar" onClick="borrar1()">Reiniciar traducción</button>
-	<!--	<button class="borrar" onClick="borrar2()">Reiniciar traducción2</button>-->
+		<button class="borrar" onClick="borrar1()">Reiniciar
+			traducción</button>
+		<!--	<button class="borrar" onClick="borrar2()">Reiniciar traducción2</button>-->
 	</div>
 
 	<!-- Pestaña de traduccion de emoji a español -->
 	<div id="Emoji_Esp" class="tabcontent" style="display: none">
-		<div style="float: left">
-			<div id="seleccionEmoji" class="cajita">
-				<c:forEach items="${emojis}" var="emoji">
-					<img onclick='insertarEmoji(this)' src="${emoji.imagen}"
-						alt="${emoji.traducciones[0].traduccion}" width="30px"
-						height="30px" />
-				</c:forEach>
+		<div>
+			<div style="float: left; width:45%">
+				<div id="seleccionEmoji" class="cajita">
+					<c:forEach items="${emojis}" var="emoji">
+						<img onclick='insertarEmoji(this)' src="${emoji.imagen}"
+							alt="${emoji.traducciones[0].traduccion}" width="30px"
+							height="30px" />
+					</c:forEach>
+				</div>
+				<div id="campo" class="cajita">
+					<!-- Aquí se insertan los emojis con ponerEmojis.js -->
+				</div>
 			</div>
-			<div id="campo" class="cajita">
-				<!-- Aquí se insertan los emojis con ponerEmojis.js -->
-			</div>
+			<textarea id="traduccion" class="caja-texto" readonly
+				placeholder="Aquí aparecerá la traducción"></textarea>
 		</div>
-		<textarea id="traduccion" class="caja-texto" readonly
-			placeholder="Aquí aparecerá la traducción"></textarea>
-		<!--<button class="borrar" onClick="borrar1()">Reiniciar31 traducción</button>-->
-		<button class="borrar" onClick="borrar2()">Reiniciar traducción</button>
+		<div class="button">
+			<!--<button class="borrar" onClick="borrar1()">Reiniciar31 traducción</button>-->
+			<button class="borrar" onClick="borrar2()">Reiniciar
+				traducción</button>
+		</div>
 	</div>
 
 </body>

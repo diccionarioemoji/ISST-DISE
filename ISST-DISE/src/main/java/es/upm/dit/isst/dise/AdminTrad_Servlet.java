@@ -17,7 +17,7 @@ import es.upm.dit.isst.dise.model.Emoji;
 import es.upm.dit.isst.dise.model.Puntuacion;
 import es.upm.dit.isst.dise.model.Traduccion;
 
-public class adminTrad_Servlet extends HttpServlet {
+public class AdminTrad_Servlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

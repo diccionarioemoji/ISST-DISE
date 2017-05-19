@@ -24,10 +24,12 @@ public class DISEDAOImpl implements DISEDAO {
 	}
 	
 	@Override
-	public Emoji crearEmoji(String imagen, String autor, String traduccionPorDefecto) {
+	public Emoji crearEmoji(String imagen, String autor, String traduccionPorDefecto, boolean validado) {
 		ArrayList<Traduccion> traducciones = new ArrayList<Traduccion>();
-		traducciones.add(new Traduccion(traduccionPorDefecto, autor));
-		Emoji emoji = new Emoji(imagen, autor, traducciones);
+		Traduccion traduccion = new Traduccion(traduccionPorDefecto, autor);
+		traduccion.setValidado(true);
+		traducciones.add(traduccion);
+		Emoji emoji = new Emoji(imagen, autor, traducciones, validado);
 		
 		ofy().save().entity(emoji).now();
 		return emoji;

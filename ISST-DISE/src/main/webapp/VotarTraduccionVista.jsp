@@ -31,7 +31,7 @@
 	<ul>
 		<li class="tab"><a href="/isst_dise">Traductor</a></li>
 		<li class="tab"><a href="/votar_traduccion">Votar Traduccion</a></li>
-		<li class="tab"><a href="/NuevoEmoji.jsp">Nuevo Emoji</a></li>
+		<li class="tab"><a href="/nuevoemoji">Nuevo Emoji</a></li>
 		<li class="tab"><a href="/ranking">Ranking</a></li>
 
 	</ul>
