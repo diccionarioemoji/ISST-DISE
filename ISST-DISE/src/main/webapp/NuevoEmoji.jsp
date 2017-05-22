@@ -16,15 +16,16 @@
 <script type="text/javascript" src="clientjs/validarform.js"></script>
 </head>
 
-
-<body>
-
+<header>
 	<c:if test="${not empty user}">
-		<header> Usuario:&nbsp;<c:out value="${user}" />&nbsp;|&nbsp;<a
+		 Usuario:&nbsp;<c:out value="${user}" />&nbsp;|&nbsp;<a
 			href="<c:url value="${url}"/>"><c:out value="${urlLinktext}" /></a>
-		</header>
+		
 	</c:if>
-
+	<c:if test="${empty user}">
+		 <a href="<c:url value="${url}"/>"><c:out
+				value="${urlLinktext}" /></a>
+	</c:if>
 
 	<h1 class="titulo">Diccionario Social Emoji</h1>
 
@@ -32,11 +33,14 @@
 	<ul>
 		<li class="tab"><a href="/isst_dise">Traductor</a></li>
 		<li class="tab"><a href="/votar_traduccion">Votar Traduccion</a></li>
-		<li class="tab"><a href="/NuevoEmoji.jsp">Nuevo Emoji</a></li>
+		<li class="tab"><a href="/nuevoemoji">Nuevo Emoji</a></li>
 		<li class="tab"><a href="/ranking">Ranking</a></li>
 
 	</ul>
 	</nav>
+</header>
+
+<body>
 	<c:if test="${not empty user}">
 		<div>
 			<h2>Proponga su nuevo Emoji</h2>

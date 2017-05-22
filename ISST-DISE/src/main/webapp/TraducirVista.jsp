@@ -15,15 +15,15 @@
 
 
 <body>
-
+<header>
 	<c:if test="${not empty user}">
-		<header> Usuario:&nbsp;<c:out value="${user}" />&nbsp;|&nbsp;<a
+		 Usuario:&nbsp;<c:out value="${user}" />&nbsp;|&nbsp;<a
 			href="<c:url value="${url}"/>"><c:out value="${urlLinktext}" /></a>
-		</header>
+		
 	</c:if>
 	<c:if test="${empty user}">
-		<header> <a href="<c:url value="${url}"/>"><c:out
-				value="${urlLinktext}" /></a> </header>
+		 <a href="<c:url value="${url}"/>"><c:out
+				value="${urlLinktext}" /></a>
 	</c:if>
 
 	<h1 class="titulo">Diccionario Social Emoji</h1>
@@ -37,7 +37,7 @@
 
 	</ul>
 	</nav>
-
+</header>
 	<!-- Seleccion de pestaña de traduccion -->
 	<div class="tab">
 		<button class="tablinks" onclick="openTraductor(event, 'Esp_Emoji')">Español
@@ -57,19 +57,21 @@
 			</div>
 			<!--<script type="text/javascript">document.getElementById("traduccionAEmoji").innerHTML=textoFinal</script>-->
 		</div>
+		<div class="button">
 		<form id="textoATraducirEspEmo" action="/traducirEspEmo" method="post"
 			acceptcharset="utf-8">
-			<button type="submit" class="borrar">Traducir</button>
+			<p><button type="submit" class="borrar">Traducir</button>
 		</form>
 		<button class="borrar" onClick="borrar1()">Reiniciar
-			traducción</button>
+			traducción</button></p>
 		<!--	<button class="borrar" onClick="borrar2()">Reiniciar traducción2</button>-->
+		</div>
 	</div>
 
 	<!-- Pestaña de traduccion de emoji a español -->
 	<div id="Emoji_Esp" class="tabcontent" style="display: none">
 		<div>
-			<div style="float: left; width:45%">
+			<div style="float: left; width:49%">
 				<div id="seleccionEmoji" class="cajita">
 					<c:forEach items="${emojis}" var="emoji">
 						<img onclick='insertarEmoji(this)' src="${emoji.imagen}"

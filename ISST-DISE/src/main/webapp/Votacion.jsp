@@ -19,8 +19,8 @@
 		</header>
 	</c:if>
 	<c:if test="${empty user}">
-		<header> <a	href="<c:url value="${url}"/>"><c:out value="${urlLinktext}" /></a>
-		</header>
+		<header> <a href="<c:url value="${url}"/>"><c:out
+				value="${urlLinktext}" /></a> </header>
 	</c:if>
 
 	<h1 class="titulo">Diccionario Social Emoji</h1>
@@ -34,7 +34,7 @@
 
 	</ul>
 	</nav>
-
+	
 <div class="imagen">
 		<img id="emojivotar"src="${emoji.imagen}" />
 	</div>

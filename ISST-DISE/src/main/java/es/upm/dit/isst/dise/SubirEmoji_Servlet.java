@@ -27,8 +27,6 @@ public class SubirEmoji_Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		DISEDAO dao = DISEDAOImpl.getInstancia();
-		// ArrayList<Emoji> emojis = new ArrayList<>();
-		// emojis.addAll(dao.leerTodosEmojis());
 		Map<String, List<BlobKey>> blobs = BlobstoreServiceFactory.getBlobstoreService().getUploads(request);
 		List<BlobKey> blobKeys = blobs.get("file");
 		if (blobKeys == null || blobKeys.isEmpty() || blobKeys.get(0) == null) {
@@ -39,13 +37,13 @@ public class SubirEmoji_Servlet extends HttpServlet {
 		ImagesService imagesService = ImagesServiceFactory.getImagesService();
 		
 		String imageUrl = imagesService.getServingUrl(ServingUrlOptions.Builder.withBlobKey(blobKeys.get(0)));
-		String user = request.getUserPrincipal().getName();
+		String user = request.getParameter("autor");
 		dao.crearEmoji(imageUrl, user, request.getParameter("traduccion"), false);
 
 		/*RequestDispatcher view = request.getRequestDispatcher("NuevoEmoji.jsp");
 		view.forward(request, response);*/
 		response.reset();
-		response.sendRedirect("../../NuevoEmoji.jsp");
+		response.sendRedirect("NuevoEmoji.jsp");
 		//BlobstoreServiceFactory.getBlobstoreService().serve(blobKeys.get(0), response);
 		//MIRAR https://ikaisays.com/2010/09/08/gwt-blobstore-the-new-high-performance-image-serving-api-and-cute-dogs-on-office-chairs/
 		
