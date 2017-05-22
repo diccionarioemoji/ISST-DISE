@@ -32,6 +32,7 @@ div.tab button {
 	cursor: pointer;
 	padding: 14px 16px;
 	transition: 0.3s;
+	font-size:15px;
 }
 
 /* Change background color of buttons on hover */
@@ -76,7 +77,9 @@ div.tab button.active {
 	max-width: 49%;
 	max-height: 320px;
 	min-width: 49%;
-	min-height: 320px
+	min-height: 320px;
+	font-family: inherit;
+	font-size: inherit;
 }
 
 .traducciones {
@@ -112,10 +115,13 @@ div.tab button.active {
 
 ul {
 	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: #333;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: #3498db, #2980b9;
+    background-image: linear-gradient(to bottom, #70b6e4, #0e4163);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 li {
@@ -132,7 +138,7 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-	background-color: #111;
+	background-image: linear-gradient(to bottom, #70B6E4, #051824);
 }
 
 #traduccionAEmoji {
@@ -150,10 +156,27 @@ campo {
 	background-color: white;
 	margin: auto;
 }
+h2{
+	font-size:45px;
+}
+#input1{
+	width: 235px;
+    height: 20px;
+    font-size: 15px;
+    border-radius: 8px;
+}
+
 
 .titulo {
 	text-align: center;
-	font-size: 45px;
+    font-size: 60px;
+    font-family: initial;
+    background-color: rgba(241, 241, 241, 0.74);
+    color: #39749c;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
 }
 
 textarea {
@@ -166,21 +189,23 @@ textarea {
 }
 
 .borrar {
-	background: #3498db;
-	background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-	background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-	background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-	background-image: -o-linear-gradient(top, #3498db, #2980b9);
-	background-image: linear-gradient(to bottom, #3498db, #2980b9);
-	-webkit-border-radius: 28;
-	-moz-border-radius: 28;
-	border-radius: 28px;
-	font-family: Arial;
-	color: #ffffff;
-	font-size: 20px;
-	padding: 10px 20px 10px 20px;
-	text-decoration: none;
-	float: left;
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    /* background-image: linear-gradient(to bottom, #3498db, #2980b9); */
+    background-image: linear-gradient(to bottom, #70b6e4, #0e4163);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    float: left;
+    margin:8px;
 }
 
 .borrar:hover {
@@ -189,7 +214,7 @@ textarea {
 	background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
 	background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
 	background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-	background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+	background-image: linear-gradient(to bottom, #3cb0fd, #70b6e4);
 	text-decoration: none;
 }
 

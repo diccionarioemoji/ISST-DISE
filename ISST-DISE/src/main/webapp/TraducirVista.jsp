@@ -58,10 +58,12 @@
 			<!--<script type="text/javascript">document.getElementById("traduccionAEmoji").innerHTML=textoFinal</script>-->
 		</div>
 		<div class="button">
+		<p style="clear:left"></p>
 		<form id="textoATraducirEspEmo" action="/traducirEspEmo" method="post"
 			acceptcharset="utf-8">
 			<p><button type="submit" class="borrar">Traducir</button>
 		</form>
+		
 		<button class="borrar" onClick="borrar1()">Reiniciar
 			traducción</button></p>
 		<!--	<button class="borrar" onClick="borrar2()">Reiniciar traducción2</button>-->
@@ -75,8 +77,8 @@
 				<div id="seleccionEmoji" class="cajita">
 					<c:forEach items="${emojis}" var="emoji">
 						<img onclick='insertarEmoji(this)' src="${emoji.imagen}"
-							alt="${emoji.traducciones[0].traduccion}" width="30px"
-							height="30px" />
+							alt="${emoji.traducciones[0].traduccion}" width="43px"
+							height="43px" />
 					</c:forEach>
 				</div>
 				<div id="campo" class="cajita">

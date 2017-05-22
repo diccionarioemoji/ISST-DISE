@@ -8,7 +8,7 @@ function insertarEmoji(emoji){
     var campo = document.getElementById('campo');
     campo.focus()
     campoInicial= campo.innerHTML
-    campo.innerHTML = campoInicial + '<img width="35px" height="35px" src='+emoji.src+'>'; 
+    campo.innerHTML = campoInicial + '<img width="43px" height="43px" src='+emoji.src+'>'; 
     
     var campo2 = document.getElementById('traduccion');
     var x = emoji.src;

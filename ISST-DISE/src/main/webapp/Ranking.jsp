@@ -49,7 +49,7 @@
 			<c:forEach items="${puntuaciones}" var="p">
 				<tr>
 					<td><c:out value="${p.usuario}" /></td>
-					<td><c:out value="${p.puntuacion}" /></td>
+					<td style="text-align: center;"><c:out value="${p.puntuacion}" /></td>
 				</tr>
 			</c:forEach>
 		</table>

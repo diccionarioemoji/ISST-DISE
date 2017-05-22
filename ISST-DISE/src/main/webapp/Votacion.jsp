@@ -45,7 +45,7 @@
 				<input type="radio" value="${n.index}" name="n" required>${traduccion.traduccion}<br>
 			</c:forEach>
 			<input type="hidden" value="${emoji.imagen}" name="imagen"> <input
-				type="submit" value="Enviar" class="btn btn-primary" />
+				type="submit" value="Enviar" class="borrar" />
 		</form>
 	</div>
 	<div class="votaciones">
@@ -60,9 +60,9 @@
 	
 	<div class="NuevaTraduccion" style = "clear:both">
 		<form action="/nueva_traduccion" method="post" acceptcharset="utf-8">
-			<input type="text" placeholder="Proponga aquí su traducción" name="nuevaTraduccion" required>
+			<input type="text" placeholder="Proponga aquí su traducción" name="nuevaTraduccion" id="input1" required><br>
 			<input type="hidden" value="${emoji.imagen}" name="imagen"> 
-			<input type="button" onclick="alerta(this.form)" value="Proponer Traduccion"/>
+			<input type="button" onclick="alerta(this.form)" value="Proponer Traduccion" class="borrar"/>
 		</form>
 	</div>
 

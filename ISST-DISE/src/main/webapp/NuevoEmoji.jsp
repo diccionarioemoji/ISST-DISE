@@ -48,10 +48,10 @@
 				enctype="multipart/form-data" method="post">
 				<p>Proponga la traducción inicial</p>
 				<input type="text" placeholder="Escriba aquí su traducción"
-					name="traduccion" required>
+					name="traduccion" required id="input1">
 				<p>Suba su archivo a continuación</p>
-				<input type="file" name="file" />
-				<input type="button" value="Subir emoji" onclick="comprueba_extension(this.form, this.form.file.value, this.form.traduccion.value)" />
+				<input type="file" name="file" /><br>
+				<input type="button" value="Subir emoji" onclick="comprueba_extension(this.form, this.form.file.value, this.form.traduccion.value)" class="borrar" />
 				<input type="hidden" name="autor" value="${user}">
 			</form>
 		</div>
